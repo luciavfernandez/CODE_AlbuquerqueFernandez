@@ -23,12 +23,13 @@ Later, you need to create the virtual environment (if not created already), run 
    python3 -m venv myenv
    source myenv/bin/activate
    pip install neo4j
+   pip install requests
    python [file_name].py
    ```
 
 ## Source Codes
 
-PartA.0_AlbuquerqueFernandez.py:
+synthetic_data.py:
 This file contains synthetic data generation for a Neo4j database. It includes lists of keywords, conferences, journals, workshops, paper reviews, and affiliations.Everything related to Synthetic data is here. This file is used on the PartA.1_AlbuquerqueFernandez.py for the requesting data from the API.
 
 PartA.1_AlbuquerqueFernandez.png:
