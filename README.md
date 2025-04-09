@@ -2,7 +2,7 @@
 
 The main goal for this practice is to deep dive in the use of graph database, specifically Neo4j. A Neo4j graph database stores data as nodes, relationships, and properties instead of in tables or documents. This means you can organize your data in a similar way as when sketching ideas on a whiteboard.
 
-# Installation
+## Installation
 
 Take into consideration the following installations:
 
@@ -14,17 +14,19 @@ Take into consideration the following installations:
 
 
 
-# Implementation
+## Implementation
 For this solution, we will be using the Terminal.The first step is to create a virtual environment. For this, you should go to the Directory where your files are located.
 
-Later, you need to create the virtual environment (if not created already):
+Later, you need to create the virtual environment (if not created already), run the following commands to create a whole new one:
 
->> python3 -m venv myenv
->> source myenv/bin/activate
->> pip install neo4j
->> python [file_name].py
+ ```
+   python3 -m venv myenv
+   source myenv/bin/activate
+   pip install neo4j
+   python [file_name].py
+   ```
 
-# Source Codes
+## Source Codes
 
 The following Repository has the following files:
 
