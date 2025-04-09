@@ -33,25 +33,32 @@ Finally, run the following commands to see the available files from the project 
 
 ## Source Codes
 
-*synthetic_data.py*
+__synthetic_data.py__
+
 This file contains synthetic data generation for a Neo4j database. It includes lists of keywords, conferences, journals, workshops, paper reviews, and affiliations. Everything related to Synthetic data is here. This file is used on the PartA.1_AlbuquerqueFernandez.py to enrich the data downloaded via de API.
 
-# PartA.1_AlbuquerqueFernandez.png
+__PartA.1_AlbuquerqueFernandez.png__
+
 A schema representing the relationships between nodes like Author, Keyword, Paper, Edition, Volume, and Journal, along with their relationships (e.g., WRITTEN_BY, HAS_KEYWORD, PUBLISHED_IN).
 
-# PartA.1_AlbuquerqueFernandez.py
+__PartA.1_AlbuquerqueFernandez.py__
+
 This script fetches Computer Science papers from the DBLP API, processes them, and enhances them with synthetic data (PartA.0_AlbuquerqueFernandez.py). The output is saved as dblp.json.
 
-# PartA.2_AlbuquerqueFernandez.py
+__PartA.2_AlbuquerqueFernandez.py__
+
 This script loads the processed data from dblp.json into a Neo4j database. It creates nodes for papers, authors, keywords, and events (conferences, journals, workshops), and establishes relationships between them.
 
-# PartA.3A_AlbuquerqueFernandez.png
+__PartA.3A_AlbuquerqueFernandez.png__
+
 Updated diagram showing additional nodes like Review and Affiliation, and relationships like REVIEWED_BY, AFFILIATED_WITH, and CITES.
 
-# PartA.3A_AlbuquerqueFernandez.py
+__PartA.3A_AlbuquerqueFernandez.py__
+
 This script extends the Neo4j database by adding review nodes and author-affiliation relationships. It processes the dblp.json file to create these additional nodes and links.
 
-# PartB_AlbuquerqueFernandez.py
+__PartB_AlbuquerqueFernandez.py__
+
 This file contains Neo4j queries to analyze the database. It includes 4 queries to find:
 
  1. Top-cited papers
@@ -59,11 +66,13 @@ This file contains Neo4j queries to analyze the database. It includes 4 queries 
  3. Journal impact factors
  4. Authors' h-index.
 
-# PartC_AlbuquerqueFernandez.py:
+__PartC_AlbuquerqueFernandez.py__
+
 This script defines and executes advanced Neo4j queries to identify a "Database Community" based on keywords (Data Management, Indexing, Data Modeling, Big
 Data, Data Processing, Data Storage and Data Querying), find top papers in this community, and identify potential reviewers and "gurus".
 
-# PartD_AlbuquerqueFernandez.py:
+__PartD_AlbuquerqueFernandez.py__
+
 This script performs graph analysis using Neo4j's Graph Data Science (GDS) library. It sets up graph projections for similarity and importance analysis, then runs algorithms to find similar papers and identify the most influential papers based on betweenness centrality.
 
 Finally, you can deactivate the python used to run the project.
