@@ -1,15 +1,15 @@
 from neo4j import GraphDatabase
 import json
 
-# Neo4j connection details
-NEO4J_URI = "bolt://localhost:7689"  # Change if needed
-NEO4J_USER = "lucia"
-NEO4J_PASSWORD = "lucia1234"  # Change this to your actual password
 
-# Connect to Neo4j
+NEO4J_URI = "bolt://localhost:7687"  
+NEO4J_USER = "neo4j"
+NEO4J_PASSWORD = "neo4j"  
+
+
 driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASSWORD))
 
-# Load JSON data
+
 with open('dblp.json', 'r', encoding='utf-8') as file:
     data = json.load(file)
 
@@ -68,19 +68,18 @@ def paper_type_nodes_and_relationships(tx, paper):
 
 def create_nodes_and_relationships(tx, paper):
     info = paper["info"]
-    
-    # Ensure authors are in list format
+
     authors = info.get("authors", {}).get("author", [])
     reviewers = info.get("reviewers", {}).get("author", [])
 
     if isinstance(authors, dict):
         authors = [authors]
 
-    # Get the first author's name, if available
+
     main_author = authors[0] if authors else {"text": "unknown", "@pid": "0000"}
     main_author_name = main_author["text"]
 
-    # Create Paper Node with corresponding author name
+
     tx.run(
         """
         MERGE (p:Paper {id: $paperid, title: $title, type: $type,doi: $doi, main_author_name: $main_author_name, url: $url})
@@ -93,7 +92,7 @@ def create_nodes_and_relationships(tx, paper):
         main_author_name=main_author_name
     ) 
 
-    # Create relationship for main author (position 1)
+
     tx.run(
         """
         MERGE (a:Author {id: $author_id})
@@ -143,7 +142,7 @@ def create_nodes_and_relationships(tx, paper):
 
     
 
-     # Create Citations
+
     for cited_paper in info.get("cited", []):
         tx.run(
             """
@@ -156,7 +155,6 @@ def create_nodes_and_relationships(tx, paper):
         )
      
     
-    # Create Keyword Nodes and Relationships
     for keyword in info.get("keywords", []):
         tx.run(
             """

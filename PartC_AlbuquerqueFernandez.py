@@ -1,9 +1,9 @@
 from neo4j import GraphDatabase
 import json
 
-NEO4J_URI = "bolt://localhost:7689"  
-NEO4J_USER = "lucia"
-NEO4J_PASSWORD = "lucia1234"  
+NEO4J_URI = "bolt://localhost:7687"  
+NEO4J_USER = "neo4j"
+NEO4J_PASSWORD = "neo4j"   
 
 
 class Neo4jQueries:
@@ -184,29 +184,47 @@ class Neo4jQueries:
         """
         return self.run_query(query, "Step 4: Identify reviewers and gurus")
 
-    def execute_all_queries(self):
-        results = {
-            "Query 1: Define Community": self.n1_database_community(),
-            "Query 2: Find Conferences/Workshops and Journals": self.n2_paper_communities(),
-            "Query 3: Find Top Papers": self.n3_top_papers(),
-            "Query 4: Find reviewers and Gurus": self.n4_reviewers_and_gurus()
-        }
+    def execute_and_display_queries(self):
+
+        print("\n=== Starting Query Execution ===\n")
+        
+        queries = [
+            ("1. Community Definition", self.n1_database_community),
+            ("2. Venue Identification", self.n2_paper_communities),
+            ("3. Community Database", self.n3_top_papers),
+            ("4. Gurus Identification", self.n4_reviewers_and_gurus)
+        ]
+        
+        results = {}
+        
+        for name, query_func in queries:
+            print(f"[RUNNING] {name}...")
+            try:
+                query_results = query_func()
+                results[name] = query_results
+                
+                print(f"\n Results for {name}:")
+                if query_results:
+                    for i, record in enumerate(query_results, 1):
+                        print(f"  {i}. {dict(record)}")
+                else:
+                    print("  No results returned")
+                print("-" * 60)
+                
+            except Exception as e:
+                print(f" Error in {name}: {str(e)}")
+                results[name] = None
+        
+        print("\n=== All queries completed ===")
         return results
 
 def main():
     neo4j = Neo4jQueries(NEO4J_URI, NEO4J_USER, NEO4J_PASSWORD)
     try:
-        results = neo4j.execute_all_queries()
+        neo4j.execute_and_display_queries()
         
-        # Print results in a structured way
-        for query_name, records in results.items():
-            print(f"\n=== Results for {query_name} ===")
-            if records:
-                for record in records:
-                    print(dict(record))
-            else:
-                print("No results returned")
-                
+    except Exception as e:
+        print(f"Unexpected error: {e}")
     finally:
         neo4j.close()
 

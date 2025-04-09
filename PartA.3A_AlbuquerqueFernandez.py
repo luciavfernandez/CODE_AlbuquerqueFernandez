@@ -3,17 +3,17 @@ import json
 import random
 from synthetic_data import *
 
-# Neo4j connection details
-NEO4J_URI = "bolt://localhost:7689"
-NEO4J_USER = "lucia"
-NEO4J_PASSWORD = "lucia1234"
+
+NEO4J_URI = "bolt://localhost:7687"  
+NEO4J_USER = "neo4j"
+NEO4J_PASSWORD = "neo4j" 
 
 
-# Connect to Neo4j
+
 driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASSWORD))
 
 def process_author(author):
-    """Helper function to handle both dict and string author representations"""
+  
     if isinstance(author, dict):
         return author.get("@pid", f"unknown_{random.randint(1000,9999)}"), author.get("text", "Unknown Author")
     return f"unknown_{random.randint(1000,9999)}", str(author)
@@ -21,7 +21,7 @@ def process_author(author):
 def create_review_node(tx, paper):
     info = paper["info"]
     
-    # Handle Review node creation
+
     review_data = info.get("review", [])
     if review_data and isinstance(review_data, list) and len(review_data) > 0:
         review = review_data[0]
@@ -42,7 +42,7 @@ def create_review_node(tx, paper):
                 decision=review.get("decision")
             )
 
-    # Handle Author-Affiliation relationships
+ 
     authors = info.get("authors", {}).get("author", [])
     if not isinstance(authors, list):
         authors = [authors] if authors else []
@@ -67,7 +67,7 @@ def create_review_node(tx, paper):
         )
 
 def main():
-    # Load JSON data
+
     with open('dblp.json', 'r', encoding='utf-8') as file:
         data = json.load(file)
 

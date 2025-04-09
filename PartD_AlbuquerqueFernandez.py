@@ -1,12 +1,12 @@
 from neo4j import GraphDatabase
 
-uri = "bolt://localhost:7689"
-username = "lucia"
-password = "lucia1234" 
+NEO4J_URI = "bolt://localhost:7687"  
+NEO4J_USER = "neo4j"
+NEO4J_PASSWORD = "neo4j"  
 
 def connect_to_neo4j():
     try:
-        driver = GraphDatabase.driver(uri, auth=(username, password))
+        driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASSWORD ))
         print("Successfully connected to Neo4j")
         return driver
     except Exception as e:
@@ -166,7 +166,6 @@ def main():
         print(f"\nUnexpected error: {e}")
     finally:
         driver.close()
-        print("\nDisconnected from Neo4j")
 
 if __name__ == "__main__":
     main()
