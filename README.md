@@ -15,7 +15,7 @@ Take into consideration the following installations:
 
 
 ## Implementation
-For this solution, we will be using the Terminal, open it the directory of the project. The first step is to create a virtual environment, we did with python3, but one can choose to do it with conda or other environment managers, we chose this to avoid any possible versioning conflicts and keep a clean environment for our application. So we expect python to be installed and available in the terminal with either python3 or python commands. Now, you should go to the Directory where your files are located. You will need to install two libraries in the new environment as well, the respective code follows:
+For this solution, we will be using the Terminal, open it in the directory of the project. The first step is to create a virtual environment, we did with python3, but one can choose to do it with conda or other environment managers, we chose this to avoid any possible versioning conflicts and keep a clean environment for our application. So we expect python to be installed and available in the terminal with either python3 or python commands. Now, you should go to the Directory where your files are located. You will need to install two libraries in the new environment as well, the respective code follows:
 
  ```
    python3 -m venv myenv
