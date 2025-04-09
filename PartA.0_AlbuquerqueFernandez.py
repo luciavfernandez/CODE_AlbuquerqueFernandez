@@ -146,6 +146,31 @@ affiliations = [
     {"type": "Company", "name": "DeepMind"}
 ]
 
+# Updated reviews data with scores 6-10 and no "denied" decisions
+paper_reviews = [
+    {"score": 9, "main_feedback": "Novel methodology with significant impact to the field", "decision": "accepted"},
+    {"score": 6, "main_feedback": "Solid work but needs minor revisions before final acceptance", "decision": "partially accepted"},
+    {"score": 10, "main_feedback": "Transformative results with exceptional experimental design", "decision": "accepted"},
+    {"score": 7, "main_feedback": "Technically sound but conclusions need slight moderation", "decision": "accepted"},
+    {"score": 8, "main_feedback": "Exceptionally well-written with comprehensive analysis", "decision": "accepted"},
+    {"score": 6, "main_feedback": "Adequate but requires moderate revisions to methodology", "decision": "partially accepted"},
+    {"score": 7, "main_feedback": "Strong theoretical framework with minor implementation issues", "decision": "accepted"},
+    {"score": 9, "main_feedback": "Outstanding contribution with immediate field applicability", "decision": "accepted"},
+    {"score": 8, "main_feedback": "Well-executed study with clear practical implications", "decision": "accepted"},
+    {"score": 7, "main_feedback": "Valuable contribution despite minor literature gaps", "decision": "accepted"},
+    {"score": 6, "main_feedback": "Marginally meets publication standards after revisions", "decision": "partially accepted"},
+    {"score": 8, "main_feedback": "Innovative approach with thorough validation", "decision": "accepted"},
+    {"score": 9, "main_feedback": "Groundbreaking theoretical framework", "decision": "accepted"},
+    {"score": 7, "main_feedback": "Competent research with good potential", "decision": "accepted"},
+    {"score": 6, "main_feedback": "Requires substantial revisions but shows promise", "decision": "partially accepted"},
+    {"score": 8, "main_feedback": "Excellent practical applications", "decision": "accepted"},
+    {"score": 9, "main_feedback": "Masterful synthesis of theory and practice", "decision": "accepted"},
+    {"score": 7, "main_feedback": "Solid contribution to the field", "decision": "accepted"},
+    {"score": 6, "main_feedback": "Needs significant improvements but has merit", "decision": "partially accepted"},
+    {"score": 10, "main_feedback": "Flawless execution with paradigm-shifting results", "decision": "accepted"}
+]
+
+
 # Function to assign event attributes based on paper type
 def assign_event_attributes(entry):
     if entry.get("type") == "Conference":
