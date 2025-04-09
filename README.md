@@ -76,3 +76,7 @@ __PartD_AlbuquerqueFernandez.py__
 This script performs graph analysis using Neo4j's Graph Data Science (GDS) library. It sets up graph projections for similarity and importance analysis, then runs algorithms to find similar papers and identify the most influential papers based on betweenness centrality.
 
 Finally, you can deactivate the python environment used to run the project, if you used a dedicated one.
+
+ ```
+   deactivate
+ ```
