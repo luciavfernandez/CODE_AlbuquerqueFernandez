@@ -33,7 +33,7 @@ Finally, run the following commands to see the available files from the project 
 
 ## Source Codes
 
-# synthetic_data.py
+*synthetic_data.py*
 This file contains synthetic data generation for a Neo4j database. It includes lists of keywords, conferences, journals, workshops, paper reviews, and affiliations. Everything related to Synthetic data is here. This file is used on the PartA.1_AlbuquerqueFernandez.py to enrich the data downloaded via de API.
 
 # PartA.1_AlbuquerqueFernandez.png
